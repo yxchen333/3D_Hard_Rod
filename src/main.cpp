@@ -1,78 +1,59 @@
-#include"system.h"
-#include<chrono>
+ï»¿#include "system.h"
+#include <chrono>
 
 using namespace std;
 
-
-
 int main()
 {
-	//¼ÇÂ¼¿ªÊ¼Ê±¼ä
+	// è®°å½•å¼€å§‹æ—¶é—´
 	auto start = chrono::steady_clock::now();
-	//-----------------------------------------------------------³õÊ¼»¯----------------------------------------------------------------------------------------------
-	
-	double P_end = 0.6;
-	int annealing_step = 200;//Ä¬ÈÏÖµ2w
-	//´ò¿ªÊäÈëÊä³öÎÄ¼ş
-	ifstream initial("initial.txt");//°üº¬¹¹Ôìº¯ÊıĞèÒªµÄÒ»ÇĞĞÅÏ¢£¬N£¬r£¬×îºóÑ¹Ç¿ºÍÑ¹Ç¿ÍË»ğ¼ä¸ô
-	ofstream output("snap_1.dump");
-	//¹¹Ôìº¯Êı³õÊ¼»¯
+
+	//-----------------------------------------------------------åˆå§‹åŒ–----------------------------------------------------------------------------------------------
+	double P_end = 2.5;
+	int annealing_step = 200;// é»˜è®¤å€¼
+
+	// æ‰“å¼€è¾“å…¥æ–‡ä»¶
+	ifstream initial("input/initial.txt");// åŒ…å«æ„é€ å‡½æ•°éœ€è¦çš„ä¿¡æ¯ï¼šå†…å¤–å¾„æ¯”ã€æ£’é•¿å’Œé€€ç«é—´éš”
+
+	// æ„é€ å‡½æ•°åˆå§‹åŒ–
 	System test(initial);
-	
 	initial >> annealing_step;
 
-	//initial >> P_end >> annealing_step;
-
-	
-	//²âÊÔÖ±½ÓÊä³ö
-	test.output(output, 0);
-	//-----------------------------------------------------------Ö÷³ÌĞò------------------------------------------------------------------------------------------------
-	////Ñ¹ËõÃÉ¿¨
+	//-----------------------------------------------------------ä¸»ç¨‹åº------------------------------------------------------------------------------------------------
+	// å‹ç¼©è’™å¡
 	test.mc_npt(P_end, annealing_step);
-	//test.mc_nvt( annealing_step);
-	//test.output(output, 1);
-	//¼ÇÂ¼½áÊøÊ±¼ä
+
+	// è®°å½•ç»“æŸæ—¶é—´
 	auto end = chrono::steady_clock::now();
 	chrono::duration<double> elapsed = end - start;
 	cout << "Total time: " << elapsed.count() << " seconds." << endl;
 
-	//Í³¼ÆÓÃÊ±
-	//cout << "It has been running for " << double(clock()) / 60000 << " minites." << endl;
 	return 0;
 }
 
+// ä¿ç•™çš„ç‹¬ç«‹æµ‹è¯•å…¥å£ï¼Œä¸å‚ä¸æ­£å¸¸ç¨‹åºæ‰§è¡Œ
 int main1()
 {
-	//¼ÇÂ¼¿ªÊ¼Ê±¼ä
+	// è®°å½•å¼€å§‹æ—¶é—´
 	auto start = chrono::steady_clock::now();
-	ifstream initial_test("initial_test.txt");//°üº¬¹¹Ôìº¯ÊıĞèÒªµÄÒ»ÇĞĞÅÏ¢£¬N£¬r£¬×îºóÑ¹Ç¿ºÍÑ¹Ç¿ÍË»ğ¼ä¸ô
-	
+	ifstream initial_test("initial_test.txt");
+
 	System test(initial_test);
 	ofstream output_test("test1.txt");
 	test.output(output_test, 0);
-	//ÏÈ²âÊÔÒ»ÏÂ
+
+	// æµ‹è¯•å‚æ•°
 	double P_end = 2;
 	int annealing_step = 30;
-	//initial >> P_end >> annealing_step;
-	cout << "P_end: " << P_end << " annealing_step: " << annealing_step << endl;;
-	
+	cout << "P_end: " << P_end << " annealing_step: " << annealing_step << endl;
 
-	//Ñ¹ËõÃÉ¿¨
+	// å‹ç¼©è’™å¡
 	test.mc_npt(P_end, annealing_step);
 
-	//¼ÇÂ¼½áÊøÊ±¼ä
+	// è®°å½•ç»“æŸæ—¶é—´
 	auto end = chrono::steady_clock::now();
 	chrono::duration<double> elapsed = end - start;
 	cout << "Total time: " << elapsed.count() << " seconds." << endl;
 
-	//Í³¼ÆÓÃÊ±
-	//cout << "It has been running for " << double(clock()) / 60000 << " minites." << endl;
 	return 0;
-
-
-	/*RigidRod R1(64.6935, 31.0696, 1.51961, 20.0, 1.0);
-	RigidRod R2(62.1946, 21.4901, 2.45069, 20.0, 1.0);
-	if (CheckCollision(R2, R1)) cout << "ÖØµş" << endl;
-	else cout << "²»ÖØµş" << endl;
-	return 0;*/
 }

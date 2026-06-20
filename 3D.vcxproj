@@ -102,6 +102,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalHeaderUnitDependencies>%(AdditionalHeaderUnitDependencies)</AdditionalHeaderUnitDependencies>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)input;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +119,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,18 +128,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="initial.txt" />
+    <Text Include="input\initial.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="particles.cpp" />
-    <ClCompile Include="random.cpp" />
-    <ClCompile Include="system.cpp" />
+    <ClCompile Include="src\hyperboloid.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\particles.cpp" />
+    <ClCompile Include="src\random.cpp" />
+    <ClCompile Include="src\system.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="particles.h" />
-    <ClInclude Include="random.h" />
-    <ClInclude Include="system.h" />
+    <ClInclude Include="include\hyperboloid.h" />
+    <ClInclude Include="include\particles.h" />
+    <ClInclude Include="include\random.h" />
+    <ClInclude Include="include\system.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

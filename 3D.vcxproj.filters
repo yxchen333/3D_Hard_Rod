@@ -15,30 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="initial.txt" />
+    <Text Include="input\initial.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="particles.cpp">
+    <ClCompile Include="src\particles.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="random.cpp">
+    <ClCompile Include="src\random.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="system.cpp">
+    <ClCompile Include="src\system.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hyperboloid.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="particles.h">
+    <ClInclude Include="include\particles.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="random.h">
+    <ClInclude Include="include\random.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="system.h">
+    <ClInclude Include="include\system.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hyperboloid.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

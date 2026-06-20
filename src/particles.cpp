@@ -81,7 +81,7 @@ double RigidRod::clamp(double x, double xmin, double xmax)
     }
 
 }
-double* RigidRod::compute_quat()
+double* RigidRod::compute_quat()const
 {
     double* q = new double[4];//四元数数组，分别代表w,x,y,z
     Vec3 zaxis=direction.normalized();//z轴
@@ -330,4 +330,22 @@ bool CheckCollision(
         RigidRod::SegmentSegmentDistance(a, b)
         <
         (a.radius + b.radius);
+}
+const Vec3& RigidRod::GetCenter() const
+{
+    return center;
+}
+
+const Vec3& RigidRod::GetDirection() const
+{
+    return direction;
+}
+
+double RigidRod::GetLength() const
+{
+    return length;
+}
+double RigidRod::GetRadius() const
+{
+    return radius;
 }
