@@ -44,3 +44,6 @@ output/
 # ======================================
 Thumbs.db
 Desktop.ini
+
+include/Eigen/
+docs/
